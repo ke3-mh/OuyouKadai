@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <table class="table">
+      <% if @model == "user" %>
+        <h2><%= "Users search for \"#{@word}\"" %></h2>
+        <thaed>
+          <tr>
+            <th></th>
+            <th>name</th>
+            <th></th>
+          </tr>
+        </thaed>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= link_to(user) do %>
+                  <%= image_tag user.get_profile_image, size:'50x50' %>
+                <% end %>
+              </td>
+              <td><%= user.name %></td>
+              <th><%= link_to "show", user_path(user) %></th>
+            </tr>
+          <% end %>
+        </tbody>
+      <% else %>
+        <h2><%= "Books search for \"#{@word}\"" %></h2>
+        <thaed>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thaed>
+        <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to(book.user) do %>
+                  <%= image_tag book.user.get_profile_image, size:'50x50' %>
+                <% end %>
+              </td>
+              <td><%= link_to book.title,book %></td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </table>
+  <div>
+</div>

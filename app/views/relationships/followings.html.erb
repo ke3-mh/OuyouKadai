@@ -1,0 +1,9 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <% if @users.exists? %>
+      <%= render 'users/index', users: @users %>
+    <% else %>
+      <p>ユーザーはいません</p>
+    <% end %>
+  </div>
+</div>
