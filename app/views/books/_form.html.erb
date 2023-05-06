@@ -8,6 +8,13 @@
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
 
+  <!--Tag投稿　ここから-->
+  <div class="form-group">
+    <%= f.label :Tag %>
+    <%= f.text_field :tag, class: 'form-control book_tag' %>
+  </div>
+  <!--Tag投稿　ここまで-->
+
   <!--星評価機能　ここから-->
   <% if book.id.nil? %>
     <div class="form-group" id="star">
